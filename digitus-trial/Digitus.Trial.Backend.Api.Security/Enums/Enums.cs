@@ -1,10 +1,11 @@
 ﻿using System;
 namespace Digitus.Trial.Backend.Api.Security.Enums
 {
-    public class Enums
+    public enum UserStatuses
     {
-        public Enums()
-        {
-        }
+        PendingAcitivation = 1,
+        Active = 2,
+        Disabled = 3,
+        Deleted = 4
     }
 }

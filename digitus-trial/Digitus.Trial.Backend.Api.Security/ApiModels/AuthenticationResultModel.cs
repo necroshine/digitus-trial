@@ -3,8 +3,7 @@ namespace Digitus.Trial.Backend.Api.Security.ApiModels
 {
     public class AuthenticationResultModel
     {
-        public AuthenticationResultModel()
-        {
-        }
+        public bool isAuthenticated { get; set; }
+        public UserApiModel CurrentUser { get; set; }
     }
 }

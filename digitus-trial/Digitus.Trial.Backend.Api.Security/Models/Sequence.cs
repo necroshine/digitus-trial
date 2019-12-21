@@ -1,10 +1,14 @@
 ﻿using System;
+using Digitus.Trial.Backend.Api.Security.Attributes;
+
 namespace Digitus.Trial.Backend.Api.Security.Models
 {
-    public class Sequence
+    [Model(CollectionName = "Sequence")]
+    public class Sequence : ModelBase
     {
-        public Sequence()
-        {
-        }
+
+        public string SequenceName { get; set; }
+
+        public int SequenceValue { get; set; }
     }
 }

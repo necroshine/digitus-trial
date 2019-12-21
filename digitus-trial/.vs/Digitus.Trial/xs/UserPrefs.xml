@@ -1,0 +1,55 @@
+﻿<Properties StartupConfiguration="{439A1161-D3AA-4691-B7B3-171E421A56F0}|Default">
+  <MonoDevelop.Ide.ItemProperties.Digitus.Trial.Backend.Api.Security.Test FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Digitus.Trial.Backend.Api.Security/Managers/UserManager.cs">
+    <Files>
+      <File FileName="Digitus.Trial.Backend.Api.Security/Startup.cs" Line="34" Column="86" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Controllers/SecurityController.cs" Line="14" Column="35" />
+      <File FileName="Digitus.Trial.Backend.Api.Security.Test/SecurityControllerTests.cs" Line="9" Column="28" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IAuthenticatationManager.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Models/User.cs" Line="25" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/AuthenticationRequestModel.cs" Line="7" Column="28" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/AuthenticationResultModel.cs" Line="9" Column="2" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/UserApiModel.cs" Line="13" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Managers/AuthenticationManager.cs" Line="6" Column="73" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IDatabaseProvider.cs" Line="9" Column="33" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Providers/BaseDatabaseProvider.cs" Line="139" Column="54" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Models/Sequence.cs" Line="13" Column="6" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Attributes/ModelAttribute.cs" Line="15" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Models/ModelBase.cs" Line="13" Column="29" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IModelBase.cs" Line="9" Column="6" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Attributes/IdentityFieldAttribute.cs" Line="15" Column="6" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Enums/Enums.cs" Line="10" Column="6" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Providers/UserDatabaseProvider.cs" Line="11" Column="6" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/appsettings.json" Line="10" Column="62" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IUserManager.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Managers/UserManager.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Digitus.Trial" expanded="True">
+            <Node name="Digitus.Trial.Backend.Api.Security" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="ApiModels" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Managers" expanded="True">
+                <Node name="UserManager.cs" selected="True" />
+              </Node>
+              <Node name="Providers" expanded="True" />
+            </Node>
+            <Node name="Digitus.Trial.Backend.Api.Security.Test" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Digitus.Trial.Backend.Api.Security FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
