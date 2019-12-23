@@ -4,7 +4,7 @@ using Digitus.Trial.Backend.Api.Security.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Digitus.Trial.Backend.Api.Security.Models
+namespace Digitus.Trial.Backend.Api.Models
 {
     public class ModelBase : IModelBase
     {

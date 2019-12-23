@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Digitus.Trial.Backend.Api.Interfaces;
+using Digitus.Trial.Backend.Api.Managers;
 using Digitus.Trial.Backend.Api.Security.Interfaces;
 using Digitus.Trial.Backend.Api.Security.Managers;
 using Digitus.Trial.Backend.Api.Security.Models;
@@ -32,6 +34,8 @@ namespace Digitus.Trial.Backend.Api.Security
             services.AddControllers();
 
             services.AddTransient<IAuthenticatationManager, AuthenticationManager>();
+            services.AddTransient<IUserManager, UserManager>();
+            services.AddTransient<INotificationManager, NotificationManager>();
 
             services.AddTransient<IDatabaseProvider<User>>(p => new UserDatabaseProvider(Configuration["MongoConnectionString"]));
         }

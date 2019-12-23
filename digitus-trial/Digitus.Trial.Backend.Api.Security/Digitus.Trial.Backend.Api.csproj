@@ -5,6 +5,11 @@
   </PropertyGroup>
 
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Digitus.Trial.Backend.Api.Security' ">
+    <StartAction>Project</StartAction>
+    <LaunchUrl>weatherforecast</LaunchUrl>
+    <ApplicationURL>http://localhost:5002</ApplicationURL>
+  </PropertyGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />

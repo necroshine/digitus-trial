@@ -5,7 +5,7 @@ using Digitus.Trial.Backend.Api.Security.Enums;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Digitus.Trial.Backend.Api.Security.Models
+namespace Digitus.Trial.Backend.Api.Models
 {
     [Model(CollectionName = "Users")]
     public class User
@@ -26,6 +26,7 @@ namespace Digitus.Trial.Backend.Api.Security.Models
         public DateTime CreateDate { get; set; }
         public UserStatuses Status { get; set; }
         public int ActivationDate { get; set; }
+        public string ActivationCode { get; set; }
 
     }
 }

@@ -2,45 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Digitus.Trial.Backend.Api.ApiModels;
+using Digitus.Trial.Backend.Api.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Digitus.Trial.Backend.Api.Security.Controllers
+namespace Digitus.Trial.Backend.Api.Controllers
 {
     [Route("api/[controller]")]
     public class UserController : Controller
     {
+        private readonly IUserManager _userManager;
+        private readonly IAuthenticatationManager _authenticationManager;
+        public UserController(IUserManager userManager,IAuthenticatationManager authenticatationManager) { }
         // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpPost("Register")]
+        [AllowAnonymous]
+        public async Task<UserRegisterResultModel> Register([FromBody]UserRegisterRequestModel request)
         {
-            return new string[] { "value1", "value2" };
+            throw new NotImplementedException();
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+        [HttpPost("UpdatePassword")]
+        [Authorize]
+        public async Task<CommonResultModel> UpdatePassword([FromBody] UpdatePasswordRequestModel request) {
+            throw new NotImplementedException();
         }
     }
 }

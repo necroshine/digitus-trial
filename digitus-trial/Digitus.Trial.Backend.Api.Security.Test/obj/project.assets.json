@@ -6523,9 +6523,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security.Test/Digitus.Trial.Backend.Api.Security.Test.csproj",
-      "projectName": "Digitus.Trial.Backend.Api.Security.Test",
-      "projectPath": "/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security.Test/Digitus.Trial.Backend.Api.Security.Test.csproj",
+      "projectUniqueName": "/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security.Test/Digitus.Trial.Backend.Api.Test.csproj",
+      "projectName": "Digitus.Trial.Backend.Api.Test",
+      "projectPath": "/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security.Test/Digitus.Trial.Backend.Api.Test.csproj",
       "packagesPath": "/Users/serhatyalcin/.nuget/packages/",
       "outputPath": "/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security.Test/obj/",
       "projectStyle": "PackageReference",

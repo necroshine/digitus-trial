@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Digitus.Trial.Backend.Api.Security.Attributes;
-using Digitus.Trial.Backend.Api.Security.Interfaces;
-using Digitus.Trial.Backend.Api.Security.Models;
+using Digitus.Trial.Backend.Api.Attributes;
+using Digitus.Trial.Backend.Api.Interfaces;
+using Digitus.Trial.Backend.Api.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace Digitus.Trial.Backend.Api.Security.Providers
+namespace Digitus.Trial.Backend.Api.Providers
 {
     public class MongoBaseDatabaseProvider<MType> : IDatabaseProvider<MType>, IDisposable where MType : class
     {
@@ -179,6 +179,21 @@ namespace Digitus.Trial.Backend.Api.Security.Providers
         public void Dispose()
         {
 
+        }
+
+        public async Task<MType> GetById(Guid id)
+        {
+            BsonDocument filter = new BsonDocument("Id", id);
+            var result = await collection.FindAsync(filter);
+
+            return result.FirstOrDefault();
+        }
+
+        public async Task<MType> DeleteById(Guid id)
+        {
+            BsonDocument filter = new BsonDocument("Id", id);
+            var item = await collection.FindOneAndDeleteAsync(filter);
+            return (MType)item;
         }
     }
 }
