@@ -1,50 +1,33 @@
-﻿<Properties StartupConfiguration="{439A1161-D3AA-4691-B7B3-171E421A56F0}|Digitus.Trial.Backend.Api.Security">
+﻿<Properties StartupConfiguration="{439A1161-D3AA-4691-B7B3-171E421A56F0}|Default">
   <MonoDevelop.Ide.ItemProperties.Digitus.Trial.Backend.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Digitus.Trial.Backend.Api.Security/ApiModels/CommonResultModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Digitus.Trial.Backend.Api.Security/Managers/NotificationManager.cs">
     <Files>
-      <File FileName="Digitus.Trial.Backend.Api.Security/Startup.cs" Line="38" Column="76" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Controllers/SecurityController.cs" Line="6" Column="32" />
-      <File FileName="Digitus.Trial.Backend.Api.Security.Test/SecurityControllerTests.cs" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IAuthenticatationManager.cs" Line="6" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Models/User.cs" Line="8" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/AuthenticationRequestModel.cs" Line="1" Column="1" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/AuthenticationResultModel.cs" Line="1" Column="1" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/UserApiModel.cs" Line="1" Column="1" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Managers/AuthenticationManager.cs" Line="7" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IDatabaseProvider.cs" Line="5" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Models/Sequence.cs" Line="4" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Attributes/ModelAttribute.cs" Line="4" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Models/ModelBase.cs" Line="7" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IModelBase.cs" Line="2" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Attributes/IdentityFieldAttribute.cs" Line="2" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Enums/Enums.cs" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Providers/UserDatabaseProvider.cs" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/appsettings.json" Line="11" Column="24" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Controllers/UserController.cs" Line="27" Column="91" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IUserManager.cs" Line="6" Column="36" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Managers/UserManager.cs" Line="7" Column="1" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/UserRegisterRequestModel.cs" Line="1" Column="1" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/UserRegisterResultModel.cs" Line="4" Column="18" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/INotificationHub.cs" Line="10" Column="9" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Managers/NotificationManager.cs" Line="23" Column="32" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Mappers/ModelMapper.cs" Line="39" Column="10" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/Providers/MongoBaseDatabaseProvider.cs" Line="6" Column="44" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/VerifyUserResultModel.cs" Line="7" Column="10" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/UpdatePasswordRequestModel.cs" Line="1" Column="1" />
-      <File FileName="Digitus.Trial.Backend.Api.Security/ApiModels/CommonResultModel.cs" Line="6" Column="44" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Managers/AuthenticationManager.cs" Line="26" Column="17" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Startup.cs" Line="36" Column="13" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Managers/NotificationManager.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Managers/UserManager.cs" Line="69" Column="74" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Models/User.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Program.cs" Line="10" Column="36" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Providers/UserDatabaseProvider.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Providers/MongoBaseDatabaseProvider.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Properties/launchSettings.json" Line="13" Column="2" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Controllers/SecurityController.cs" Line="1" Column="1" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IPasswordProvider.cs" Line="11" Column="24" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Interfaces/IAuthenticatationManager.cs" Line="14" Column="9" />
+      <File FileName="Digitus.Trial.Backend.Api.Security/Providers/PasswordProvider.cs" Line="19" Column="73" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Digitus.Trial" expanded="True">
             <Node name="Digitus.Trial.Backend.Api" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="ApiModels" expanded="True">
-                <Node name="CommonResultModel.cs" selected="True" />
-              </Node>
               <Node name="Controllers" expanded="True" />
+              <Node name="Enums" expanded="True" />
               <Node name="Interfaces" expanded="True" />
-              <Node name="Managers" expanded="True" />
+              <Node name="Managers" expanded="True">
+                <Node name="NotificationManager.cs" selected="True" />
+              </Node>
               <Node name="Mappers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Providers" expanded="True" />
@@ -58,7 +41,10 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/Managers/NotificationManager.cs" relfile="Digitus.Trial.Backend.Api.Security/Managers/NotificationManager.cs" line="15" column="1" />
+      <Breakpoint file="/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/Managers/s2cwkarc.f5q~" relfile="Digitus.Trial.Backend.Api.Security/Managers/s2cwkarc.f5q~" line="28" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.Digitus.Trial.Backend.Api.Test FirstBuild="True" />

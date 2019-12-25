@@ -14,9 +14,8 @@ namespace Digitus.Trial.Backend.Api.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        private readonly IUserManager _userManager;
-        private readonly IAuthenticatationManager _authenticationManager;
-        public UserController(IUserManager userManager,IAuthenticatationManager authenticatationManager) { }
+        private  IUserManager _userManager;
+        public UserController(IUserManager userManager) { }
         // GET: api/values
         [HttpPost("Register")]
         [AllowAnonymous]

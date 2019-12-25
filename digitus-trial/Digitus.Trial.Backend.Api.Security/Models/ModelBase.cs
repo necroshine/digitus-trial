@@ -1,6 +1,6 @@
 ﻿using System;
-using Digitus.Trial.Backend.Api.Security.Attributes;
-using Digitus.Trial.Backend.Api.Security.Interfaces;
+using Digitus.Trial.Backend.Api.Attributes;
+using Digitus.Trial.Backend.Api.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 

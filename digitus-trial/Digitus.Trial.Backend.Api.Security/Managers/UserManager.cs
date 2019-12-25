@@ -5,23 +5,24 @@ using Digitus.Trial.Backend.Api.ApiModels;
 using Digitus.Trial.Backend.Api.Interfaces;
 using Digitus.Trial.Backend.Api.Mappers;
 
-using Digitus.Trial.Backend.Api.Security.Models;
+using Digitus.Trial.Backend.Api.Models;
 
 namespace Digitus.Trial.Backend.Api.Managers
 {
     public class UserManager: IUserManager
     {
         IDatabaseProvider<User> _userDatabaseProvider;
-        IAuthenticatationManager _authenticationManager;
+        IPasswordProvider _passwordProvider;
         INotificationManager _notificationManager;
         public UserManager(
             IDatabaseProvider<User> userDatabaseProvider,
-            INotificationManager notificationManager,
-            IAuthenticatationManager authenticatationManager)
+            //INotificationManager notificationManager,
+            IPasswordProvider passwordProvider
+            )
         {
             _userDatabaseProvider = userDatabaseProvider;
-            _authenticationManager = authenticatationManager;
-            _notificationManager = notificationManager;
+            _passwordProvider = passwordProvider;
+            //_notificationManager = notificationManager;
         }
 
         public async Task<User> GetUserByActivationCode(string activationCode)
@@ -59,12 +60,13 @@ namespace Digitus.Trial.Backend.Api.Managers
         public async Task<UserRegisterResultModel> Register(UserApiModel model)
         {
             var userModel = ModelMapper.ToModel(model);
-            userModel.ActivationCode = await _authenticationManager.GenerateActivationCode();
+            userModel.ActivationCode = await _passwordProvider.GenerateActivationCode();
             var result = await _userDatabaseProvider.Add(userModel).ConfigureAwait(false);
             if(result != null)
             {
-                string activationCode = await _authenticationManager.GenerateActivationCode();
+                string activationCode = await _passwordProvider.GenerateActivationCode();
                 result.ActivationCode = activationCode;
+                result.Password = await _passwordProvider.EncryptPassword(result.Password);
                 await _userDatabaseProvider.Update(result);
 
                 string bodyHtml = _notificationManager.GenerateActivationMailBody(activationCode);

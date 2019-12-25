@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Digitus.Trial.Backend.Api.ApiModels;
-using Digitus.Trial.Backend.Api.Security.Models;
+using Digitus.Trial.Backend.Api.Models;
 
 namespace Digitus.Trial.Backend.Api.Interfaces
 {
@@ -9,12 +9,9 @@ namespace Digitus.Trial.Backend.Api.Interfaces
     {
         Task<AuthenticationResultModel> Authenticate(AuthenticationRequestModel model);
         Task<VerifyUserResultModel> VerifyUser(string verifyToken);
-        Task<bool?> ForgetPassword(string userMail);
-        Task ResetPassword();
+        Task<CommonResultModel> ForgetPassword(string userMail);
 
-        Task<string> GenerateActivationCode();
-
-        Task<string> ChipperPassword(string password);
+        
 
     }
 }

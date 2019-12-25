@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Digitus.Trial.Backend.Api.ApiModels;
-using Digitus.Trial.Backend.Api.Security.Models;
+using Digitus.Trial.Backend.Api.Models;
 
 namespace Digitus.Trial.Backend.Api.Interfaces
 {

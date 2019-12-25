@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
-using Digitus.Trial.Backend.Api.Security.Attributes;
-using Digitus.Trial.Backend.Api.Security.Enums;
+using Digitus.Trial.Backend.Api.Attributes;
+using Digitus.Trial.Backend.Api.Enums;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 

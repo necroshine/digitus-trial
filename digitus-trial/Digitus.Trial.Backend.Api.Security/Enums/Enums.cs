@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Digitus.Trial.Backend.Api.Security.Enums
+namespace Digitus.Trial.Backend.Api.Enums
 {
     public enum UserStatuses
     {

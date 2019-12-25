@@ -20,7 +20,7 @@ namespace Digitus.Trial.Backend.Api.Managers
             string linkPrefix = _config.GetSection("ActivationLinkPrefix").Value;
             string body = $"<html><head><head><body>" +
                 $"<p>Please click activation link placed below for activate your acount.</p><br>"+
-                $"{linkPrefix}/
+                $"{linkPrefix}/{activationCode}" +
                 "</body></html>";
 
 

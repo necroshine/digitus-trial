@@ -1,7 +1,7 @@
 ﻿using System;
-using Digitus.Trial.Backend.Api.Security.Models;
+using Digitus.Trial.Backend.Api.Models;
 
-namespace Digitus.Trial.Backend.Api.Security.Providers
+namespace Digitus.Trial.Backend.Api.Providers
 {
     public class UserDatabaseProvider : MongoBaseDatabaseProvider<User>
     {
