@@ -31,12 +31,15 @@ namespace Digitus.Trial.Backend.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDataProtection();
+
+            services.AddTransient<IDatabaseProvider<User>>(p => new UserDatabaseProvider(Configuration["MongoConnectionString"]));                        
             
-           // services.AddDataProtection();
-            //services.AddTransient<IAuthenticatationManager, AuthenticationManager>();
+            services.AddTransient<IPasswordProvider, PasswordProvider>();
+            services.AddTransient<IAuthenticatationManager, AuthenticationManager>();
             services.AddTransient<IUserManager, UserManager>();
 
-            services.AddTransient<IDatabaseProvider<User>>(p => new UserDatabaseProvider(Configuration["MongoConnectionString"]));
+            
 
           
         }
