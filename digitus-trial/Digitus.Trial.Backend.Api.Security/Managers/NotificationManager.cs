@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Digitus.Trial.Backend.Api.Interfaces;
@@ -30,8 +31,9 @@ namespace Digitus.Trial.Backend.Api.Managers
 
         public Task SendMail(string sender, string receiver, string subject, string body)
         {
-            using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("localhost"))
+            using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.sendgrid.net",25))
             {
+                smtp.Credentials = new NetworkCredential("apikey", "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");
                 MailMessage mail = new MailMessage(sender, receiver);
                 mail.IsBodyHtml = true;
                 mail.Subject = subject;

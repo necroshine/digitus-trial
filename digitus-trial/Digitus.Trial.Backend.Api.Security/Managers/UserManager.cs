@@ -97,7 +97,7 @@ namespace Digitus.Trial.Backend.Api.Managers
             userModel.ActivationCode = await _passwordProvider.GenerateActivationCode();
             userModel.CreateDate = DateTime.UtcNow;
             userModel.ActivationDate = DateTime.MinValue;
-            userModel.ActivationCodeSentDate = DateTime.MinValue;
+            userModel.ActivationCodeSentDate = DateTime.UtcNow;
             userModel.Password = await _passwordProvider.EncryptPassword(userModel.Password);
             userModel.Status = Enums.Statuses.PendingAcitivation;
             var result = await _userDatabaseProvider.Add(userModel).ConfigureAwait(false);
