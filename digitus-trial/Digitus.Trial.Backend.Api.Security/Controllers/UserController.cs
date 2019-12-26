@@ -15,19 +15,28 @@ namespace Digitus.Trial.Backend.Api.Controllers
     public class UserController : Controller
     {
         private  IUserManager _userManager;
-        public UserController(IUserManager userManager) { }
+        public UserController(IUserManager userManager) {
+            _userManager = userManager;
+        }
         // GET: api/values
+        [HttpGet("HealthCheck")]
+        [AllowAnonymous]
+        public IActionResult HelathCheck()
+        {
+            return Ok("Healthy");
+        }
         [HttpPost("Register")]
         [AllowAnonymous]
         public async Task<UserRegisterResultModel> Register([FromBody]UserRegisterRequestModel request)
         {
-            throw new NotImplementedException();
+            var result = await _userManager.Register(request);
+            return result;
         }
 
-        [HttpPost("UpdatePassword")]
+        [HttpPost("ForgetPassword")]
         [Authorize]
-        public async Task<CommonResultModel> UpdatePassword([FromBody] UpdatePasswordRequestModel request) {
-            throw new NotImplementedException();
+        public async Task<CommonResultModel> ForgetPassword([FromBody] ForgetPasswordRequestModel request) {
+            return await _userManager.ForgetPassword(request.Email);
         }
     }
 }

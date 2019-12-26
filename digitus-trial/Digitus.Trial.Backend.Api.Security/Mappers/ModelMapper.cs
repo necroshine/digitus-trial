@@ -37,5 +37,19 @@ namespace Digitus.Trial.Backend.Api.Mappers
 
             };
         }
+
+        public static User ToModel(UserRegisterRequestModel model)
+        {
+            if (model == null) throw new ArgumentNullException("model");
+
+            return new User()
+            {
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                UserName = model.UserName,
+                Password = model.Password                
+            };
+        }
     }
 }

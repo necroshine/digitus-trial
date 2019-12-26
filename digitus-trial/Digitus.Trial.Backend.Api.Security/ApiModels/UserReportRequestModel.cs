@@ -3,8 +3,7 @@ namespace Digitus.Trial.Backend.Api.ApiModels
 {
     public class UserReportRequestModel
     {
-        public UserReportRequestModel()
-        {
-        }
+
+        public int TimePeriodByDay { get; set; }
     }
 }

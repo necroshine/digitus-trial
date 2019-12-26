@@ -21,12 +21,16 @@ namespace Digitus.Trial.Backend.Api.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
-        
+        public string LastName { get; set; }       
+        public UserStatuses UserStatus { get; set; }
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime CreateDate { get; set; }
-        public UserStatuses Status { get; set; }
-        public int ActivationDate { get; set; }
+        public Statuses Status { get; set; }
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime ActivationDate { get; set; }
         public string ActivationCode { get; set; }
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime ActivationCodeSentDate { get; set; }
 
     }
 }

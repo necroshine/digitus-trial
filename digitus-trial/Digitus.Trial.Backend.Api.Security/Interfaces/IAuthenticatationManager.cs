@@ -8,10 +8,7 @@ namespace Digitus.Trial.Backend.Api.Interfaces
     public interface IAuthenticatationManager
     {
         Task<AuthenticationResultModel> Authenticate(AuthenticationRequestModel model);
-        Task<VerifyUserResultModel> VerifyUser(string verifyToken);
-        Task<CommonResultModel> ForgetPassword(string userMail);
-
-        
+        Task<VerifyUserResultModel> VerifyUser(string verifyToken);        
 
     }
 }

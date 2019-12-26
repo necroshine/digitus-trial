@@ -9,5 +9,6 @@ namespace Digitus.Trial.Backend.Api.Interfaces
 
         Task<string> EncryptPassword(string password);
         Task<string> DecryptPassword(string password);
+        Task<string> GeneratePassword();
     }
 }

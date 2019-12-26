@@ -7,6 +7,7 @@ using Digitus.Trial.Backend.Api.Attributes;
 using Digitus.Trial.Backend.Api.Interfaces;
 using Digitus.Trial.Backend.Api.Models;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
 namespace Digitus.Trial.Backend.Api.Providers
@@ -28,6 +29,8 @@ namespace Digitus.Trial.Backend.Api.Providers
             database = client.GetDatabase(mongoUrl.DatabaseName);
 
             collection = database.GetCollection<MType>(GetCollectionName<MType>());
+
+    
         }
 
         public virtual async Task<MType> Add(MType item)
@@ -140,8 +143,12 @@ namespace Digitus.Trial.Backend.Api.Providers
             }
             return ignoreIdentitySeed;
         }
-        protected int GetIDValue(MType item)
+        protected dynamic GetIDValue(MType item)
         {
+            var idValue = item.GetType().GetProperty("Id").GetValue(item);
+            Guid guid = Guid.Empty;
+            bool isguid = Guid.TryParse(idValue.ToString(), out guid);
+            if (isguid) return guid;
             return (int)item.GetType().GetProperty("Id").GetValue(item);
 
         }

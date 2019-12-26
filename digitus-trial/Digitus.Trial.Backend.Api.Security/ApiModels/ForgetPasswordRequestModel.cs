@@ -1,10 +1,8 @@
 ﻿using System;
 namespace Digitus.Trial.Backend.Api.ApiModels
 {
-    public class UpdatePasswordRequestModel
+    public class ForgetPasswordRequestModel
     {
-        public UpdatePasswordRequestModel()
-        {
-        }
+        public string Email { get; set; }
     }
 }

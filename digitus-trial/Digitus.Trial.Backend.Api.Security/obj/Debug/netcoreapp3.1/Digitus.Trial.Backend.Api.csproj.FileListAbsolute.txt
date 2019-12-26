@@ -23,9 +23,6 @@
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/obj/Debug/netcoreapp3.1/Digitus.Trial.Backend.Api.dll
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/obj/Debug/netcoreapp3.1/Digitus.Trial.Backend.Api.pdb
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
-/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
-/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Microsoft.DotNet.PlatformAbstractions.dll
-/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
@@ -38,3 +35,4 @@
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/obj/Debug/netcoreapp3.1/Digitus.Trial.Backend.Api.csprojAssemblyReference.cache
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/obj/Debug/netcoreapp3.1/Digitus.Trial.Backend.Api.MvcApplicationPartsAssemblyInfo.cs
 /Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/serhatyalcin/Sources/Git/digitus-trial/digitus-trial/Digitus.Trial.Backend.Api.Security/bin/Debug/netcoreapp3.1/Microsoft.OpenApi.dll

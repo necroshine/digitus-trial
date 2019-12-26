@@ -19,20 +19,25 @@ namespace Digitus.Trial.Backend.Api.Managers
         IPasswordProvider _passwordProvider;
         IConfiguration _configuration;
         INotificationManager _notificationManager;
+        IDatabaseProvider<UserLog> _userLogDatabaseProvider;
         public AuthenticationManager(
             IUserManager userManager,
             IPasswordProvider passwordProvider,
             IConfiguration configuration,
-            INotificationManager notificationManager)
+            INotificationManager notificationManager,
+            IDatabaseProvider<UserLog> userLogDatabaseProvider)
         {
             _userManager = userManager;
             _passwordProvider = passwordProvider;
             _configuration = configuration;
             _notificationManager = notificationManager;
+            _userLogDatabaseProvider = userLogDatabaseProvider;
         }
 
         private string GenerateToken(User user)
         {
+            if (user == null) throw new ArgumentNullException("GenerateToken.User");
+
             var tokenSecret = _configuration.GetSection("TokenGeneratorSecretKey").Value;
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(tokenSecret);
@@ -50,7 +55,11 @@ namespace Digitus.Trial.Backend.Api.Managers
         }
         public async Task<AuthenticationResultModel> Authenticate(AuthenticationRequestModel model)
         {
-           
+            if (string.IsNullOrEmpty(model.UserName)) throw new ArgumentNullException("Authentication.Username");
+            if (string.IsNullOrEmpty(model.Password)) throw new ArgumentNullException("Authentication.Password");
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            // the code that you want to measure comes here
+            
             var user = await _userManager.GetUserByUserName(model.UserName);
             if (user == null)
             {
@@ -62,59 +71,19 @@ namespace Digitus.Trial.Backend.Api.Managers
             }
             var currentUser = ModelMapper.ToApiModel(user);
             currentUser.Token = GenerateToken(user);
-            return new AuthenticationResultModel() { isAuthenticated = true, CurrentUser = currentUser };
-        }
-
-       
-
-        public async Task<CommonResultModel> ForgetPassword(string userMail)
-        {
-            var user = await _userManager.GetUserByEmail(userMail);
-            if(user == null) return new CommonResultModel() { IsSuccess = false, Message = "Account not founded with releated email" };
-            var generatedPassword = GeneratePassword();
-            var chipperPassword = await _passwordProvider.EncryptPassword(generatedPassword).ConfigureAwait(false);
-            user.Password = chipperPassword;
-            var mailBody = "";
-            await _notificationManager.SendMail("info@digitus.com", user.Email, "Password Reset", mailBody);
-
-            return new CommonResultModel() { IsSuccess = true, Message = "New password sent to your email address. Please check your emailbox." };
-
-        }
-
-        private string GeneratePassword()
-        {
-            StringBuilder password = new StringBuilder();
-            Random random = new Random();
-            var digit = true;
-            var lowercase = true;
-            var uppercase = true;
-            var nonAlphanumeric = true;
-            while (password.Length < 8)
+            user.UserStatus = Enums.UserStatuses.Online;
+            await _userManager.UpdateUser(user);
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            await _userLogDatabaseProvider.Add(new UserLog()
             {
-                char c = (char)random.Next(32, 126);
-
-                password.Append(c);
-
-                if (char.IsDigit(c))
-                    digit = false;
-                else if (char.IsLower(c))
-                    lowercase = false;
-                else if (char.IsUpper(c))
-                    uppercase = false;
-                else if (!char.IsLetterOrDigit(c))
-                    nonAlphanumeric = false;
-            }
-
-            if (nonAlphanumeric)
-                password.Append((char)random.Next(33, 48));
-            if (digit)
-                password.Append((char)random.Next(48, 58));
-            if (lowercase)
-                password.Append((char)random.Next(97, 123));
-            if (uppercase)
-                password.Append((char)random.Next(65, 91));
-
-            return password.ToString();
+                CreateDate = DateTime.UtcNow,
+                Duration = elapsedMs,
+                UserId = user.Id,
+                Operation = Enums.UserOperations.Login,
+               
+            });
+            return new AuthenticationResultModel() { isAuthenticated = true, CurrentUser = currentUser };
         }
 
         public async Task<string> GenerateActivationCode()
@@ -122,10 +91,6 @@ namespace Digitus.Trial.Backend.Api.Managers
             return await Task.FromResult(Guid.NewGuid().ToString()).ConfigureAwait(false);   
         }
 
-        public Task ResetPassword()
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<VerifyUserResultModel> VerifyUser(string verifyCode)
         {
@@ -137,10 +102,13 @@ namespace Digitus.Trial.Backend.Api.Managers
             }
             else
             {
-                user.Status = Enums.UserStatuses.Active;
+                user.Status = Enums.Statuses.Active;
+                user.ActivationDate = DateTime.Now;
                 await _userManager.UpdateUser(user);
                 return new VerifyUserResultModel() { IsVerified = true, Message = "Verification is success" };
             }            
         }
+
+     
     }
 }
