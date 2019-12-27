@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 
 namespace Digitus.Trial.Backend.Api.Interfaces
 {
     public interface IDatabaseProvider<T> where T: class
     {
+        IMongoCollection<T> Collection { get; }
+
         Task<T> GetById(int id);
         Task<T> GetById(Guid id);
         Task<IList<T>> GetAllAsync();

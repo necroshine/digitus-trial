@@ -5,5 +5,6 @@ namespace Digitus.Trial.Backend.Api.ApiModels
     {
         public bool isAuthenticated { get; set; }
         public UserApiModel CurrentUser { get; set; }
+        public string Message { get; set; }
     }
 }

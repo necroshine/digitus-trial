@@ -20,6 +20,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\WeatherForecastController.cs" />
     <Compile Remove="SecurityController.cs" />
+    <Compile Remove="ApiModels\LoginReportRequestModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.10.0" />

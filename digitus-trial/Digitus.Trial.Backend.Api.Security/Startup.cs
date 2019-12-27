@@ -59,6 +59,8 @@ namespace Digitus.Trial.Backend.Api
             services.AddTransient<IPasswordProvider, PasswordProvider>();
             services.AddTransient<IAuthenticatationManager, AuthenticationManager>();
             services.AddTransient<IUserManager, UserManager>();
+            services.AddTransient<IReportManager, ReportManager>();
+            services.AddTransient<IMockManager, MockManager>();
 
 
             var tokenSecret = Configuration.GetSection("TokenGeneratorSecretKey").Value;

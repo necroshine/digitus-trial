@@ -63,11 +63,15 @@ namespace Digitus.Trial.Backend.Api.Managers
             var user = await _userManager.GetUserByUserName(model.UserName);
             if (user == null)
             {
-                return new AuthenticationResultModel() { isAuthenticated = false, CurrentUser = default };
+                return new AuthenticationResultModel() { isAuthenticated = false, CurrentUser = default, Message = "User not found" };
+            }
+            if(user.Status == Enums.Statuses.PendingAcitivation)
+            {
+                return new AuthenticationResultModel() { isAuthenticated = false, CurrentUser = default, Message = "Account pending activation." };
             }
             if(model.Password !=  await _passwordProvider.DecryptPassword(user.Password))
             {
-                return new AuthenticationResultModel() { isAuthenticated = false, CurrentUser = default };
+                return new AuthenticationResultModel() { isAuthenticated = false, CurrentUser = default, Message = "Invalid credentials" };
             }
             var currentUser = ModelMapper.ToApiModel(user);
             currentUser.Token = GenerateToken(user);

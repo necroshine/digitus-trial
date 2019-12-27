@@ -4,11 +4,11 @@ using Digitus.Trial.Backend.Api.ApiModels;
 
 namespace Digitus.Trial.Backend.Api.Interfaces
 {
-    public interface IReportProvider
+    public interface IReportManager
     {
-        Task<LoginReportResultModel> PopulateLoginReport(LoginReportRequestModel request);
+        Task<LoginReportResultModel> PopulateLoginReport(DateTime filterValue);
         Task<VerifyUserReportResponseModel> PopulateVerifyUserReport();
-        Task<UserReportResponseModel> PopulateUserReport(UserReportRequestModel request);
+        Task<UserReportResponseModel> PopulateUserReport(int timePeriodByDay);
 
     }
 }

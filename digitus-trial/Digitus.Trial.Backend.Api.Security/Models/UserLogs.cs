@@ -18,7 +18,7 @@ namespace Digitus.Trial.Backend.Api.Models
         public Guid Id { get; set; }
 
         public Guid UserId { get; set; }
-        [BsonDateTimeOptions(Kind = DateTimeKind.Local, DateOnly = true)]
+
         public DateTime CreateDate { get; set; }
         public UserOperations Operation { get; set; }
         public long Duration { get; set; }
