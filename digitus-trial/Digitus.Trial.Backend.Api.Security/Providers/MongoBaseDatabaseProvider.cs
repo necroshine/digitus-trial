@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Digitus.Trial.Backend.Api.Security.Attributes;
-using Digitus.Trial.Backend.Api.Security.Interfaces;
-using Digitus.Trial.Backend.Api.Security.Models;
+using Digitus.Trial.Backend.Api.Attributes;
+using Digitus.Trial.Backend.Api.Interfaces;
+using Digitus.Trial.Backend.Api.Models;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
-namespace Digitus.Trial.Backend.Api.Security.Providers
+namespace Digitus.Trial.Backend.Api.Providers
 {
     public class MongoBaseDatabaseProvider<MType> : IDatabaseProvider<MType>, IDisposable where MType : class
     {
@@ -28,6 +29,8 @@ namespace Digitus.Trial.Backend.Api.Security.Providers
             database = client.GetDatabase(mongoUrl.DatabaseName);
 
             collection = database.GetCollection<MType>(GetCollectionName<MType>());
+
+    
         }
 
         public virtual async Task<MType> Add(MType item)
@@ -140,8 +143,12 @@ namespace Digitus.Trial.Backend.Api.Security.Providers
             }
             return ignoreIdentitySeed;
         }
-        protected int GetIDValue(MType item)
+        protected dynamic GetIDValue(MType item)
         {
+            var idValue = item.GetType().GetProperty("Id").GetValue(item);
+            Guid guid = Guid.Empty;
+            bool isguid = Guid.TryParse(idValue.ToString(), out guid);
+            if (isguid) return guid;
             return (int)item.GetType().GetProperty("Id").GetValue(item);
 
         }
@@ -179,6 +186,21 @@ namespace Digitus.Trial.Backend.Api.Security.Providers
         public void Dispose()
         {
 
+        }
+
+        public async Task<MType> GetById(Guid id)
+        {
+            BsonDocument filter = new BsonDocument("Id", id);
+            var result = await collection.FindAsync(filter);
+
+            return result.FirstOrDefault();
+        }
+
+        public async Task<MType> DeleteById(Guid id)
+        {
+            BsonDocument filter = new BsonDocument("Id", id);
+            var item = await collection.FindOneAndDeleteAsync(filter);
+            return (MType)item;
         }
     }
 }

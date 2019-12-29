@@ -15,12 +15,21 @@
     <Folder Include="Mappers\" />
     <Folder Include="Attributes\" />
     <Folder Include="Enums\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Controllers\WeatherForecastController.cs" />
     <Compile Remove="SecurityController.cs" />
+    <Compile Remove="ApiModels\LoginReportRequestModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.10.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="5.0.0-rc5" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.0.0-rc5" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.0.0-rc5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Models\UserLog.json" />
   </ItemGroup>
 </Project>
