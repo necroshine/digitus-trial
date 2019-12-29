@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Digitus.Trial.Backend.Api.Security
+namespace Digitus.Trial.Backend.Api
 {
     public class Program
     {

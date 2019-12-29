@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Digitus.Trial.Backend.Api.Security.Interfaces
+namespace Digitus.Trial.Backend.Api.Interfaces
 {
     public interface IModelBase
     {

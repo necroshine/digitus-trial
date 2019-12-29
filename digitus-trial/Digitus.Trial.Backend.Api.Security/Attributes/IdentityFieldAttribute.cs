@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Digitus.Trial.Backend.Api.Security.Attributes
+namespace Digitus.Trial.Backend.Api.Attributes
 {
     public enum IdentityFieldTypes
     {

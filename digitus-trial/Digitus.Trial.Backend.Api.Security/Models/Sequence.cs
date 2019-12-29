@@ -1,7 +1,7 @@
 ﻿using System;
-using Digitus.Trial.Backend.Api.Security.Attributes;
+using Digitus.Trial.Backend.Api.Attributes;
 
-namespace Digitus.Trial.Backend.Api.Security.Models
+namespace Digitus.Trial.Backend.Api.Models
 {
     [Model(CollectionName = "Sequence")]
     public class Sequence : ModelBase
