@@ -21,7 +21,10 @@ namespace Digitus.Trial.Backend.Api.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }       
+        public string LastName { get; set; }
+        public UserRoles Role { get; set; }
+        [BsonIgnore]
+        public string RoleName { get { return Role.ToString(); } }
         public UserStatuses UserStatus { get; set; }
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime CreateDate { get; set; }

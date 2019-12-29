@@ -34,6 +34,8 @@ namespace Digitus.Trial.Backend.Api.Managers
             _userLogDatabaseProvider = userLogDatabaseProvider;
         }
 
+
+
         private string GenerateToken(User user)
         {
             if (user == null) throw new ArgumentNullException("GenerateToken.User");
@@ -45,7 +47,8 @@ namespace Digitus.Trial.Backend.Api.Managers
             {
                 Subject = new System.Security.Claims.ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name,user.Id.ToString())
+                    new Claim(ClaimTypes.Name,user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, user.RoleName.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(10),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -103,6 +106,10 @@ namespace Digitus.Trial.Backend.Api.Managers
             if (user == null)
             {
                 return new VerifyUserResultModel() { IsVerified = false, Message = "Verification code is not matched" };
+            }
+            else if (user.Status != Enums.Statuses.PendingAcitivation)
+            {
+                return new VerifyUserResultModel() { IsVerified = false, Message = "User Account already verified." };
             }
             else
             {

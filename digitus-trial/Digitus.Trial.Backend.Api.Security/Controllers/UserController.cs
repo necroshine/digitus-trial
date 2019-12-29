@@ -19,12 +19,6 @@ namespace Digitus.Trial.Backend.Api.Controllers
             _userManager = userManager;
         }
         // GET: api/values
-        [HttpGet("HealthCheck")]
-        [AllowAnonymous]
-        public IActionResult HelathCheck()
-        {
-            return Ok("Healthy");
-        }
         [HttpPost("Register")]
         [AllowAnonymous]
         public async Task<UserRegisterResultModel> Register([FromBody]UserRegisterRequestModel request)

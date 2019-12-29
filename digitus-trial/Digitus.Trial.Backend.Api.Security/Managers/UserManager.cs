@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Digitus.Trial.Backend.Api.ApiModels;
 using Digitus.Trial.Backend.Api.Interfaces;
@@ -47,17 +48,18 @@ namespace Digitus.Trial.Backend.Api.Managers
         public async Task<User> GetUserByActivationCode(string activationCode)
         {
             if (string.IsNullOrEmpty(activationCode)) throw new ArgumentNullException("activationCode");
-
-            var result = await _userDatabaseProvider.GetByFilter($"{{'ActivationCode': '{activationCode}'}}").ConfigureAwait(false);
-            return result.FirstOrDefault();
+            var result = await _userDatabaseProvider.GetAllAsync().ConfigureAwait(false);
+            var usr = result.Where(u => u.ActivationCode == activationCode).FirstOrDefault();
+            return usr;
         }
 
         public async Task<User> GetUserByEmail(string email)
         {
             if (string.IsNullOrEmpty(email)) throw new ArgumentNullException("email");
 
-            var result = await _userDatabaseProvider.GetByFilter($"{{'Email': '{email}'}}").ConfigureAwait(false);
-            return result.FirstOrDefault();
+            var result = await _userDatabaseProvider.GetAllAsync().ConfigureAwait(false);
+            var usr = result.Where(u => u.Email == email).FirstOrDefault();
+            return usr;
            
         }
 
@@ -72,8 +74,9 @@ namespace Digitus.Trial.Backend.Api.Managers
         {
             if (string.IsNullOrEmpty(userName)) throw new ArgumentNullException("userName");
 
-            var result = await _userDatabaseProvider.GetByFilter($"{{'UserName': '{userName}'}}").ConfigureAwait(false);
-            return result.FirstOrDefault();
+            var result = await _userDatabaseProvider.GetAllAsync().ConfigureAwait(false);
+            var usr = result.Where(u => u.UserName == userName).FirstOrDefault();
+            return usr;
         }
 
         public async Task<UserRegisterResultModel> Register(UserRegisterRequestModel model)
@@ -86,11 +89,11 @@ namespace Digitus.Trial.Backend.Api.Managers
 
             if (await GetUserByEmail(model.Email) != null)
             {
-                return new UserRegisterResultModel() { IsSuccess = false, Message = "An User already exists with same email address." };
+                return new UserRegisterResultModel() { IsSuccess = false, Message = "An User already registered with same email address." };
             }
             if (await GetUserByUserName(model.UserName) != null)
             {
-                return new UserRegisterResultModel() { IsSuccess = false, Message = "An User already exists with same username." };
+                return new UserRegisterResultModel() { IsSuccess = false, Message = "An User already registered with same username." };
             }
             var userModel = ModelMapper.ToModel(model);
 

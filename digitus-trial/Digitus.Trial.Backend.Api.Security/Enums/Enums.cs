@@ -20,4 +20,11 @@ namespace Digitus.Trial.Backend.Api.Enums
         Login = 1
      
     }
+    public enum UserRoles
+    {
+        Admin = 1,
+        StandartUser = 2,
+        SuperUser = 3,
+        Readonly = 4
+    }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Digitus.Trial.Backend.Api.ApiModels;
+using Digitus.Trial.Backend.Api.Enums;
+using Digitus.Trial.Backend.Api.Helpers;
 using Digitus.Trial.Backend.Api.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,20 +22,20 @@ namespace Digitus.Trial.Backend.Api.Controllers
         }
 
         [HttpGet("PopulateUserReport/{duration}")]
-        [AllowAnonymous]
+        [Authorize(Roles = UserRoleHelper.Admin)]
         public async Task<UserReportResponseModel> PopulateUserReport(int duration)
         {
             return await _reportManager.PopulateUserReport(duration);
         }
         [HttpGet("PopulateVerifyUserReports")]
-        [AllowAnonymous]
+        [Authorize(Roles = UserRoleHelper.Admin)]
         public async Task<VerifyUserReportResponseModel> PopulateVerifyUserReport()
         {
             return await _reportManager.PopulateVerifyUserReport();
         }
 
         [HttpGet("PopulateLoginReport/{date}")]
-        [AllowAnonymous]
+        [Authorize(Roles = UserRoleHelper.Admin)]
         public async Task<LoginReportResultModel> PopulateLoginReport(DateTime date)
         {
             return await _reportManager.PopulateLoginReport(date);
